@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.view_more{
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for better contrast */
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+}
+.view_more .box-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Ensure the modal is flexible */
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.view_more .box-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.view_more .box-image .close{
+    background-color: #ff9898;
+    z-index: 10;
+    padding: 10px;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    color: white;
+    font-size: 1.2rem;
+    clip-path: circle();
+    cursor: pointer;
+}
+
+.view_more .box-image .close:hover{
+    background-color: red;
+}
+
+.view_more .box-image .close:active{
+    scale: 0.9;
+}
+
+.container{
+    position: relative;
+    width: 90%; /* Make container responsive */
+    max-width: 1200px; /* Limit max-width to keep layout clean */
+    margin: auto;
+}
+
+.row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+    align-items: center;
+    gap: 20px;
+    transform: translateY(10px);
+    /* margin-top: 20px; */
+}
+
+/* For medium screens (tablets) */
+@media screen and (max-width: 1023px) {
+    .row{
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    }
+}
+
+/* For smaller screens (mobile) */
+@media screen and (max-width: 767px) {
+    .row{
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+        gap: 15px; /* Reduced gap for small screens */
+    }
+
+    .card {
+        width: 100%; /* Cards take full width */
+        height: auto; /* Adjust height for better fit */
+        padding: 15px; /* Padding for better spacing */
+    }
+}
+
+/* For very small screens (extra small phones) */
+@media screen and (max-width: 480px) {
+    .row{
+        grid-template-columns: 1fr; /* 1 column layout for very small screens */
+        gap: 10px; /* Further reduce gap */
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 10px; /* Slightly smaller padding for ultra-small screens */
+    }
+
+    .card .discount{
+        font-size: 1rem; /* Reduce discount label font size */
+        padding: 5px 3px;
+    }
+
+    .card .des-prd h2{
+        font-size: 1rem; /* Adjust heading font size */
+    }
+
+    .card .des-prd p{
+        font-size: 0.9rem; /* Smaller paragraph font size */
+    }
+
+    .card .btn{
+        font-size: 0.9rem; /* Adjust button text size */
+        padding: 0.5rem;
+    }
+}
+
+.card{
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Softer shadow for better look */
+    border-radius: 10px;
+    background-color: #f0f0f0; /* Light background for cards */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.card:hover{
+    transform: scale(1.05); /* Scale card on hover */
+}
+
+.card .discount{
+    left: 3%;
+    top: 3%;
+    position: absolute;
+    background-color: rgb(107, 107, 107);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    padding: 10px 3px;
+}
+
+.card .image img{
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+}
+
+.card .des-prd h2, .card .des-prd p{
+    margin: 10px;
+    color: #333; /* Darker text for better contrast */
+    font-size: 1.1rem; /* Increase text size for readability */
+}
+
+.card .btn{
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.6rem;
+    font-size: 1.1rem; /* Slightly larger button text */
+    text-align: center;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover{
+    background-color: #555; /* Hover effect for buttons */
+}
+
+.card .btn:active{
+    background-color: #444; /
+}
